@@ -1,50 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NuskiStream</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-        }
-        header {
-            background: #111;
-            padding: 20px;
-            font-size: 1.5em;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        .hero {
-            padding: 100px 20px;
-            background: linear-gradient(to bottom right, #0d0d0d, #1a1a1a);
-        }
-        .hero h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        .hero p {
-            font-size: 1.2em;
-            color: #bbb;
-        }
-        footer {
-            padding: 20px;
-            background: #111;
-            font-size: 0.9em;
-            color: #777;
-        }
-    </style>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NuskiStream</title>
+  <style>
+    body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:#000;color:#fff}
+    header{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:#111;position:sticky;top:0}
+    .brand{font-weight:700;letter-spacing:.4px}
+    nav a{color:#bbb;text-decoration:none;margin:0 10px}
+    nav a:hover{color:#fff}
+    .hero{padding:80px 20px;text-align:center;background:linear-gradient(135deg,#0b0b0b,#1a1a1a)}
+    .cta{margin-top:18px;display:inline-block;background:#fff;color:#000;padding:10px 16px;border-radius:8px;text-decoration:none}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:1000px;margin:40px auto;padding:0 16px}
+    .card{background:#111;border:1px solid #1f1f1f;border-radius:12px;padding:16px}
+    footer{padding:20px;background:#111;color:#777;text-align:center;margin-top:40px}
+  </style>
 </head>
 <body>
-    <header>NuskiStream</header>
-    <div class="hero">
-        <h1>Welcome to NuskiStream</h1>
-        <p>The new era of streaming with purpose. Built to inspire. Powered by the people.</p>
-    </div>
-    <footer>© 2025 NuskiStream. All Rights Reserved.</footer>
+  <header>
+    <div class="brand">NuskiStream</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="stream.html">Live</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 style="font-size:42px;margin:0 0 10px">Welcome to NuskiStream</h1>
+    <p style="color:#bbb;max-width:700px;margin:0 auto">
+      The new era of streaming with purpose. Built to inspire. Powered by the people.
+    </p>
+    <a class="cta" href="signup.html">Become a Creator</a>
+  </section>
+
+  <section class="grid">
+    <div class="card"><h3>Live & VOD</h3><p>Go live from phone or desktop, post videos & shorts.</p></div>
+    <div class="card"><h3>Get Paid</h3><p>Tips, subs, PPV. Transparent splits—creators first.</p></div>
+    <div class="card"><h3>Community</h3><p>Chat, comments, collabs, challenges, leaderboards.</p></div>
+    <div class="card"><h3>Ownership</h3><p>No shadow bans. You own your audience and data.</p></div>
+  </section>
+
+  <footer>© 2025 NuskiStream. All Rights Reserved.</footer>
 </body>
 </html>
