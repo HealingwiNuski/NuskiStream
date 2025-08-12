@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live • NuskiStream</title>
+<style>
+  body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:#000;color:#fff}
+  header{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:#111;position:sticky;top:0}
+  header a{color:#bbb;text-decoration:none;margin:0 10px} header a:hover{color:#fff}
+  .wrap{max-width:1000px;margin:24px auto;padding:0 16px}
+  .player{aspect-ratio:16/9;width:100%;border:0;border-radius:12px;background:#111}
+  .note{color:#aaa;font-size:.92em;margin-top:12px}
+  .box{background:#111;border:1px solid #1f1f1f;border-radius:12px;padding:16px}
+  input[type=url]{width:100%;padding:10px;border-radius:8px;border:1px solid #2a2a2a;background:#0f0f0f;color:#fff}
+  button{margin-top:8px;padding:10px 14px;border-radius:8px;background:#fff;color:#000;border:0}
+</style>
+</head><body>
+<header>
+  <div>NuskiStream</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="stream.html">Live</a>
+  </nav>
+</header>
+
+<div class="wrap">
+  <h1>Live</h1>
+  <div id="embedArea"></div>
+
+  <div class="box" id="helper" style="margin-top:16px">
+    <p class="note">Paste your YouTube Live (or any video) link and press “Load”. This page also works with
+    <code>?yt=LINK</code> or <code>?v=VIDEO_ID</code> in the URL.</p>
+    <input id="yturl" type="url" placeholder="https://www.youtube.com/watch?v=YOUR_ID">
+    <button onclick="loadFromInput()">Load</button>
+  </div>
+
+  <p class="note">Tip: When you’re live in the YouTube app, tap **Share** → copy link → open this page with
+  <code>?yt=PASTE-LINK</code>. Example:
+  <code>.../stream.html?yt=https://www.youtube.com/watch?v=abc123</code></p>
+
+  <!-- Twitch option (uncomment and replace YOURCHANNEL to use Twitch instead)
+  <iframe class="player"
+    src="https://player.twitch.tv/?channel=YOURCHANNEL&parent=healingwinuski.github.io"
+    allowfullscreen></iframe> -->
+</div>
+
+<script>
+  function getQueryParam(name){
+    const u=new URL(window.location.href);
+    return u.searchParams.get(name);
+  }
+  function extractVideoIdFromUrl(url){
+    try{
+      const u=new URL(url);
+      if(u.hostname.includes('youtube.com')){
+        const id=u.searchParams.get('v');
+        if(id) return id;
+        if(u.pathname.startsWith('/embed/')) return u.pathname.split('/').pop();
+        if(u.pathname.startsWith('/live/')) return u.pathname.split('/').pop();
+      }
+      if(u.hostname==='youtu.be'){ return u.pathname.slice(1); }
+    }catch(e){}
+    return null;
+  }
+  function renderPlayerById(id){
+    const area=document.getElementById('embedArea');
+    area.innerHTML =
+      `<iframe class="player" src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe>`;
+    document.getElementById('helper').style.display='none';
+  }
+  function loadFromInput(){
+    const val=document.getElementById('yturl').value.trim();
+    const id = extractVideoIdFromUrl(val) || val;
+    if(id){ renderPlayerById(id); }
+    else{ alert('Could not find a valid YouTube ID or URL.'); }
+  }
+  (function init(){
+    const vid = getQueryParam('v');
+    const yt = getQueryParam('yt');
+    if(yt){ const id = extractVideoIdFromUrl(yt); if(id){ renderPlayerById(id); return; } }
+    if(vid){ renderPlayerById(vid); }
+  })();
+</script>
+</body></html>
