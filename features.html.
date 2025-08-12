@@ -1,0 +1,13 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Features • NuskiStream</title>
+<style>body{margin:0;font-family:Inter,Arial;background:#000;color:#fff}a{color:#bbb;text-decoration:none}header{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:#111}.wrap{max-width:1000px;margin:30px auto;padding:0 16px}.card{background:#111;border:1px solid #1f1f1f;border-radius:12px;padding:16px;margin-bottom:12px}</style>
+</head><body>
+<header><div>NuskiStream</div><nav><a href="index.html">Home</a> • <a href="stream.html">Live</a> • <a href="signup.html">Sign Up</a></nav></header>
+<div class="wrap">
+  <h1>Features</h1>
+  <div class="card"><h3>Live streaming</h3><p>RTMP/WebRTC pipeline with HLS playback.</p></div>
+  <div class="card"><h3>Monetization</h3><p>Tips, subscriptions, pay-per-view, collab splits.</p></div>
+  <div class="card"><h3>Discovery</h3><p>Shorts, tags, search, follow, notifications.</p></div>
+</div>
+</body></html>
